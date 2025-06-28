@@ -91,7 +91,7 @@ export class Tool<Args extends ZodRawShape | undefined = undefined> {
           content: [
             {
               type: 'text',
-              text: JSON.stringify(result.value),
+              text: JSON.stringify(result.value, null, 2),
             },
           ],
         };
@@ -127,3 +127,7 @@ function getErrorResult(requestId: RequestId, error: unknown): CallToolResult {
     ],
   };
 }
+
+export const exportedForTesting = {
+  getErrorResult,
+};
